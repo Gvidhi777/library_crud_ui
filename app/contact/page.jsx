@@ -38,7 +38,7 @@ export default function ContactPage() {
    
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-[#fffaf5] px-4">
+        <div className="min-h-screen sm: flex flex-col items-center justify-center bg-[#fffaf5] px-4">
 
             <h1 className="text-4xl font-bold text-center mb-2 text-[#043042]">
                 Contact <span className="text-orange-500">Us</span>

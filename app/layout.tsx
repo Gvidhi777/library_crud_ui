@@ -36,7 +36,7 @@ export default function RootLayout({
               {/* Push content below navbar */}
               <div className="pt-16">
                   {children}
-                  <Toaster/>
+                  <ToasterProvider/>
               </div>
       </body>
     </html>
