@@ -72,36 +72,45 @@ const Navbar = () => {
 
 
                     {/* MORE DROPDOWN */}
-                    <li className="absolute left-0 -bottom-1 w-0 h-[2px] 
-        bg-gradient-to-r from-[#FACA15] to-[#EA5A0C] 
-        transition-all duration-300 group-hover:w-full">
-                        <button
-                            onClick={() => setOpen(!open)}
-                            className="flex items-center gap-1 hover:text-amber-500"
-                        >
-                            More
-                            <ChevronDown
-                                className={`w-5 h-5 transition-transform ${open ? "rotate-180" : "" }`}
-                            />
-                        </button>
+                    <li className="relative cursor-pointer group">
+					  <button
+					    onClick={() => setOpen(!open)}
+					    className="flex items-center gap-1 transition-all duration-300
+					      group-hover:bg-gradient-to-r 
+					      group-hover:from-[#FACA15] 
+					      group-hover:to-[#EA5A0C] 
+					      group-hover:bg-clip-text 
+					      group-hover:text-transparent"
+					  >
+					    More
+					    <ChevronDown
+					      className={`w-5 h-5 transition-transform ${
+					        open ? "rotate-180" : ""
+					      }`}
+					    />
+					  </button>
+					
+					  {/* Animated underline */}
+					  <span className="absolute left-0 -bottom-1 w-0 h-[2px]
+					    bg-gradient-to-r from-[#FACA15] to-[#EA5A0C]
+					    transition-all duration-300 group-hover:w-full" />
+					
+					  {open && (
+					    <div className="absolute right-0 mt-4 w-64 bg-[#043042] text-white rounded-md shadow-lg overflow-hidden z-50">
+					      <Link
+					        href="/contact"
+					        onClick={() => setOpen(false)}
+					        className="block px-6 py-4 text-xl text-orange-400 hover:bg-[#032530]"
+					      >
+					        Contact Us
+					      </Link>
+					
+					      <div className="h-1 bg-orange-400" />
+					    </div>
+					  )}
+					</li>
 
-                        {open && (
-                            <div className="absolute right-0 mt-4 w-64 bg-[#043042] text-white rounded-md shadow-lg overflow-hidden">
-                                <Link
-                                    href="/contact"
-									onClick={() => setOpen(false)}
-                                    className="block px-6 py-4 text-xl text-orange-400 hover:bg-[#032530]"
-                                >
-                                    Contact Us
-                                </Link>
-
-                                {/* bottom accent line */}
-                                <div className="h-1 bg-orange-400" />
-                            </div>
-                        )}
-                    </li>
-
-                </ul>
+				</ul>
             </div>
 
 
