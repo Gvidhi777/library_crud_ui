@@ -36,9 +36,10 @@ const Home = () => {
             <div className="w-full max-w-5xl flex flex-col items-center text-center mt-8 lg:mt-14">
 
                 {/* Title */}
-                <h1 className="font-thin md:font-bold text-2xl sm:text-3xl lg:text-4xl leading-snug flex flex-col lg:flex-row items-center justify-center text-center">
-                    <span className="text-[#043042]">Trending Hashtag:</span>{" "}
-                    <span className="text-[#eb5d13]">Best Hashtags Generator</span>
+                <h1 className="font-thin md:font-bold text-2xl sm:text-3xl lg:text-4xl leading-snug flex flex-col items-center justify-center text-center">
+                    <span className="text-[#A7B1FF]">Discover Your Next Great Read</span>
+					
+                    <span className="text-[#E48BFF] text-2xl">Explore thousands of books, journals, and digital resources.</span>
                 </h1>
 
                 {/* Search */}

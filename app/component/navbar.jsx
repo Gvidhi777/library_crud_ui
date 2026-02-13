@@ -13,65 +13,23 @@ const Navbar = () => {
 
     return (
 
-        <div className='w-full flex justify-between h-20 items-center bg-[#043042]'>
+        <div className='w-full flex justify-between h-20 items-center bg-gradient-to-r from-[#98F1FFE8] to-[#E9FDFF]'>
             <div className='flex items-center p-1' >
-                <img src="/logo.png" className="px-4 lg:ml-10 fixed h-auto w-[180px] sm:w-[250px] md:w-[260px] lg:w-[290px]" alt="logo" />
-            </div>
+			{/*image here*/}
+			</div>
 
-            <button
-                onClick={() => setMenu(true)}
-                className="md:hidden text-white text-3xl px-2"
-            >
-                <Menu className="text-[#F9A629] text-4xl" />
-            </button>
+           
 
             <div className='hidden lg:block w-[50%] h-full'>
                 <ul className="w-full h-full flex gap-6 items-center justify-center text-xl font-medium text-zinc-100">
-                    <li className="cursor-pointer group">
-					  <Link href="/" className="relative inline-block">
-						<Home />
-						<span className="absolute left-0 -bottom-1 w-0 h-[2px] 
-						  bg-gradient-to-r from-[#FACA15] to-[#EA5A0C] 
-						  transition-all duration-300 group-hover:w-full" />
-					  </Link>
-					</li>
-
-					<li className="cursor-pointer relative group">
-					  <span className="transition-all duration-300 group-hover:bg-gradient-to-r 
-						group-hover:from-[#FACA15] group-hover:to-[#EA5A0C] 
-						group-hover:bg-clip-text group-hover:text-transparent">
-						Trending Hashtags
-					  </span>
-					  <span className="absolute left-0 -bottom-1 w-0 h-[2px] 
-						bg-gradient-to-r from-[#FACA15] to-[#EA5A0C] 
-						transition-all duration-300 group-hover:w-full" />
-					</li>
-
-					<li className="cursor-pointer relative group">
-					  <span className="transition-all duration-300 group-hover:bg-gradient-to-r 
-						group-hover:from-[#FACA15] group-hover:to-[#EA5A0C] 
-						group-hover:bg-clip-text group-hover:text-transparent">
-						Banned Hashtags
-					  </span>
-					  <span className="absolute left-0 -bottom-1 w-0 h-[2px] 
-						bg-gradient-to-r from-[#FACA15] to-[#EA5A0C] 
-						transition-all duration-300 group-hover:w-full" />
-					</li>
-
-					<li className="cursor-pointer relative group">
-					  <span className="transition-all duration-300 group-hover:bg-gradient-to-r 
-						group-hover:from-[#FACA15] group-hover:to-[#EA5A0C] 
-						group-hover:bg-clip-text group-hover:text-transparent">
-						Couple Hashtags
-					  </span>
-					  <span className="absolute left-0 -bottom-1 w-0 h-[2px] 
-						bg-gradient-to-r from-[#FACA15] to-[#EA5A0C] 
-						transition-all duration-300 group-hover:w-full" />
-					</li>
+                   
 
 
 
-                    {/* MORE DROPDOWN */}
+
+
+
+                    {/* MORE DROPDOWN 
                     <li className="relative cursor-pointer group">
 					  <button
 					    onClick={() => setOpen(!open)}
@@ -90,7 +48,7 @@ const Navbar = () => {
 					    />
 					  </button>
 					
-					  {/* Animated underline */}
+					  // Animated underline 
 					  <span className="absolute left-0 -bottom-1 w-0 h-[2px]
 					    bg-gradient-to-r from-[#FACA15] to-[#EA5A0C]
 					    transition-all duration-300 group-hover:w-full" />
@@ -103,12 +61,13 @@ const Navbar = () => {
 					        className="block px-6 py-4 text-xl text-orange-400 hover:bg-[#032530]"
 					      >
 					        Contact Us
-					      </Link>
+					      </Link> 
+						  
 					
 					      <div className="h-1 bg-orange-400" />
 					    </div>
 					  )}
-					</li>
+					</li> */}
 
 				</ul>
             </div>
