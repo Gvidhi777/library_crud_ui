@@ -32,6 +32,30 @@ const Home = () => {
     return (
         <div className="w-full min-h-[calc(100vh-60px)] flex flex-col items-center px-4 sm:px-6 lg:px-0 bg-[#F9FAFB]">
 
+<div className='h-20 w-full flex justify-end items-center bg-[#FCF8F8] shadow-sm'>
+        
+ <ul className="w-full h-full pr-20 flex gap-6 items-center justify-end text-xl font-medium ">
+                 
+				 <li className="w-full flex justify-end items-center px-4"> 
+				 {/* Search */}
+                <div className="w-full max-w-md flex items-center border border-[#A7B1FF] bg-white rounded-full overflow-hidden transition-all duration-200 focus-within:ring-2 focus-within:ring-[#F9A629] focus-within:shadow-md" >
+					<input 
+					type="text" 
+					placeholder="Explore Books, Authors, and more..."
+					  className="flex-1 px-4 py-2 text-sm sm:text-base outline-none bg-transparent relative z-50"
+
+					/>
+					<button className="w-12 h-12 sm:w-11 sm:h-11 bg-[#685AFF] flex items-center justify-center hover:bg-[#eb5d13]">
+					  <Search className="text-white" size={18} />
+					</button>
+				  </div>
+				
+				</li>
+				
+				 <li> <User className="text-[#15173D] w-6 h-6" /> </li>
+				 </ul>
+		
+</div>
             {/* HERO */}
             <div className="w-full max-w-5xl flex flex-col items-center text-center mt-8 lg:mt-14">
 
@@ -42,24 +66,7 @@ const Home = () => {
                     <span className="text-[#E48BFF] text-2xl">Explore thousands of books, journals, and digital resources.</span>
                 </h1>
 
-                {/* Search */}
-                <div className="w-full mt-6 flex justify-center">
-                    <div className="w-full sm:w-[90%] lg:w-[650px]
-                      flex items-center
-                      border border-[#f9a629]
-                      bg-white rounded-full overflow-hidden">
-
-                        <input
-                            type="text"
-                            placeholder="Explore hashtags, trends, and more..."
-                            className="flex-1 px-4 py-3 text-sm sm:text-base outline-none"
-                        />
-
-                        <button className="w-12 h-12 bg-[#F9A629] flex items-center justify-center hover:bg-[#eb5d13]">
-                            <Search className="text-white" />
-                        </button>
-                    </div>
-                </div>
+                
 
                 {/* Description */}
                 <p className="hidden md:block mt-6 max-w-3xl text-sm sm:text-base lg:text-lg leading-relaxed px-2">
@@ -75,16 +82,7 @@ const Home = () => {
                     Free Download
                 </h2>
 
-                {/* Links */}
-                <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-2
-                    text-sm sm:text-base text-[#eb5d13]">
-                    <span>Insta Reels</span>
-                    <span>Facebook Videos</span>
-                    <span>Youtube Videos</span>
-                    <span>Insta Stories</span>
-                    <span>Pinterest Videos</span>
-                    <span>Reddit Videos</span>
-                </div>
+                
 
                 {/* CTA */}
                 <button className="mt-6 bg-[#eb5d13] text-white px-6 py-2 rounded-md

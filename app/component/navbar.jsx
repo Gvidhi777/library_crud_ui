@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, Home, Menu, X } from "lucide-react"
+import { ChevronDown, Home, House, Menu, X, LibraryBig, Download, BookHeart, Settings, LogOut } from "lucide-react"
 import Link from "next/link"
 
 
@@ -11,66 +11,86 @@ const Navbar = () => {
 
     const [menu, setMenu] = useState(false);
 
+	const [active, setActive] = useState("Discover");
+
+
     return (
 
-        <div className='w-full flex justify-between h-20 items-center bg-gradient-to-r from-[#98F1FFE8] to-[#E9FDFF]'>
-            <div className='flex items-center p-1' >
-			{/*image here*/}
+        <div className='h-screen w-54 justify-between items-center bg-[#E9FDFF] '>
+            <div className='flex items-center' >
+			<img src="./logo.jpeg" className="px-2 lg:mt-5 h-auto w-[180px] sm:w-[250px] md:w-[260px] lg:w-[290px]" alt="logo" />
 			</div>
 
            
 
-            <div className='hidden lg:block w-[50%] h-full'>
-                <ul className="w-full h-full flex gap-6 items-center justify-center text-xl font-medium text-zinc-100">
-                   
+            <div className='hidden lg:block w-[50%] h-full items-center justify-center'>
+			  <ul className="w-full h-full flex flex-col gap-6 items-start justify-center text-xl font-medium text-[#A7B1FF] ml-10">
 
+				<li>
+				  <Link href="/discover" 
+					className={`flex gap-1 group transition-all duration-300 
+					  ${active === "Discover" ? "border-b-2 border-[#A7B1FF]" : "border-b-2 border-transparent"}`}
+					onClick={() => setActive("Discover")}
+				  >
+					<House /> Discover
+				  </Link>
+				</li>
 
+				<li>
+				  <Link href="/category" 
+					className={`flex gap-1 group transition-all duration-300
+					  ${active === "Category" ? "border-b-2 border-[#A7B1FF]" : "border-b-2 border-transparent"}`}
+					onClick={() => setActive("Category")}
+				  >
+					<LibraryBig /> Category
+				  </Link>
+				</li>
 
+				<li>
+				  <Link href="/download" 
+					className={`flex gap-1 group transition-all duration-300
+					  ${active === "Download" ? "border-b-2 border-[#A7B1FF]" : "border-b-2 border-transparent"}`}
+					onClick={() => setActive("Download")}
+				  >
+					<Download /> Download
+				  </Link>
+				</li>
 
+				<li>
+				  <Link href="/favourite" 
+					className={`flex gap-1 group transition-all duration-300
+					  ${active === "Favourite" ? "border-b-2 border-[#A7B1FF]" : "border-b-2 border-transparent"}`}
+					onClick={() => setActive("Favourite")}
+				  >
+					<BookHeart /> Favourite
+				  </Link>
+				</li>
 
+				<span className="block border-t border-[#A7B1FF] my-5 w-full" />
 
-                    {/* MORE DROPDOWN 
-                    <li className="relative cursor-pointer group">
-					  <button
-					    onClick={() => setOpen(!open)}
-					    className="flex items-center gap-1 transition-all duration-300
-					      group-hover:bg-gradient-to-r 
-					      group-hover:from-[#FACA15] 
-					      group-hover:to-[#EA5A0C] 
-					      group-hover:bg-clip-text 
-					      group-hover:text-transparent"
-					  >
-					    More
-					    <ChevronDown
-					      className={`w-5 h-5 transition-transform ${
-					        open ? "rotate-180" : ""
-					      }`}
-					    />
-					  </button>
-					
-					  // Animated underline 
-					  <span className="absolute left-0 -bottom-1 w-0 h-[2px]
-					    bg-gradient-to-r from-[#FACA15] to-[#EA5A0C]
-					    transition-all duration-300 group-hover:w-full" />
-					
-					  {open && (
-					    <div className="absolute right-0 mt-4 w-64 bg-[#043042] text-white rounded-md shadow-lg overflow-hidden z-50">
-					      <Link
-					        href="/contact"
-					        onClick={() => setOpen(false)}
-					        className="block px-6 py-4 text-xl text-orange-400 hover:bg-[#032530]"
-					      >
-					        Contact Us
-					      </Link> 
-						  
-					
-					      <div className="h-1 bg-orange-400" />
-					    </div>
-					  )}
-					</li> */}
+				<li>
+				  <Link href="/settings" 
+					className={`flex gap-1 group transition-all duration-300
+					  ${active === "Settings" ? "border-b-2 border-[#A7B1FF]" : "border-b-2 border-transparent"}`}
+					onClick={() => setActive("Settings")}
+				  >
+					<Settings /> Settings
+				  </Link>
+				</li>
 
-				</ul>
-            </div>
+				<li>
+				  <Link href="/logout" 
+					className={`flex gap-1 group transition-all duration-300
+					  ${active === "Logout" ? "border-b-2 border-[#A7B1FF]" : "border-b-2 border-transparent"}`}
+					onClick={() => setActive("Logout")}
+				  >
+					<LogOut /> Logout
+				  </Link>
+				</li>
+
+			  </ul>
+			</div>
+
 
 
 

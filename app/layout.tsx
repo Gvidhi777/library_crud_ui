@@ -3,6 +3,7 @@ import { Geist, Nunito } from "next/font/google";
 import "./globals.css";
 import Navbar from "./component/navbar"
 import ToasterProvider from "./ToasterProvider"
+import Footer from "./component/Footer"
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -29,18 +30,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${nunito.className} antialiased`}
-      >
-              <div className="fixed top-0 left-0 w-full z-50">
-                  <Navbar />
-              </div>
+      <body className={`${nunito.className} antialiased`}>
+            <div className="flex">
+    
+			{/* Left Sidebar */}
+			<Navbar className=" shadow-[6px_0_15px_rgba(0,0,0,0.08)]"/>
 
-              {/* Push content below navbar */}
-              <div className="pt-16">
-                  {children}
-                  <ToasterProvider/>
-              </div>
+			{/* Main Content */}
+			<main className="flex-1 ">
+			  {children}
+			  <ToasterProvider />
+			</main>
+			
+
+		  </div>
       </body>
     </html>
   );
