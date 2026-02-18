@@ -34,7 +34,7 @@ export default function RootLayout({
             <div className="flex">
     
 			{/* Left Sidebar */}
-			<Navbar className=" shadow-[6px_0_15px_rgba(0,0,0,0.08)]"/>
+			<Navbar />
 
 			{/* Main Content */}
 			<main className="flex-1 ">

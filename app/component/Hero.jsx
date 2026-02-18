@@ -1,129 +1,181 @@
-import React from 'react';
+"use client"
+
+import { useState } from 'react';
+import Link from "next/link"
 import {
-    Search,
-    Video,
-    Film,
-    PlaySquare,
-    MonitorPlay,
-    Play,
-    Phone,
-    Image,
-    Star,
-    Hash,
-    User
+  Search,
+  User,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react"
 
-const tools = [
-    { icon: <Video className="text-orange-500 w-6 h-6" />, label: "Video downloader" },
-    { icon: <Film className="text-orange-500 w-6 h-6" />, label: "Insta Reels downloader" },
-    { icon: <PlaySquare className="text-orange-500 w-6 h-6" />, label: "Facebook Reels Downloader" },
-    { icon: <MonitorPlay className="text-orange-500 w-6 h-6" />, label: "Insta Story Saver" },
-    { icon: <Play className="text-orange-500 w-6 h-6" />, label: "YouTube Shorts Downloader" },
-    { icon: <Phone className="text-orange-500 w-6 h-6" />, label: "Profile Pic downloader" },
-    { icon: <Image className="text-orange-500 w-6 h-6" />, label: "Thumbnail downloader" },
-    { icon: <Star className="text-orange-500 w-6 h-6" />, label: "Highlights downloader" },
-    { icon: <Hash className="text-orange-500 w-6 h-6" />, label: "Wedding Tags generator" },
-    { icon: <User className="text-orange-500 w-6 h-6" />, label: "User Info" },
-]
+const books = [
+  {
+    id: 1,
+    image: "/godaan.png",
+    name: "Godaan",
+    author: "Munshi Premchand",
+    price: "₹250",
+    details: "Godaan (Hindi: गोदान, Urdu: گودان, romanized: gōdān, lit.: cow donation) is a Hindi novel by Munshi Premchand. It was first published in 1936 and is considered one of the greatest novels of modern Indian literature. Themed around the socio-economic deprivation as well as the exploitation of the village poor, the novel was the last complete novel of Premchand. It follows the story of an old poor farmer, stuck in a debt trap, who wants to purchase a cow, but is unable to do so for lack of money. It was translated into English in 1957 by Jai Ratan and Purushottama Lal as The Gift of a Cow."
+  },
+  {
+    id: 2,
+    image: "/madhushala.png",
+    name: "Madhushala",
+    author: "Harivansh Rai Bachchan",
+    price: "₹200",
+    details: "The poet tries to explain the complexity of life with his four instruments, which appear in almost every verse: madhu, madira or hala (wine), saki (server), pyala (cup or glass) and of course madhushala, madiralaya (pub or bar)."
+  },
+  {
+    id: 3,
+    image: "/ragdarbari.png",
+    name: "Raag Darbari",
+    author: "Shrilal Shukla",
+    price: "₹300",
+    details: "Satirical novel critiquing post-Independence Indian politics."
+  },
+  {
+    id: 4,
+    image: "/mailaaanchal.png",
+    name: "Maila Anchal",
+    author: "Phanishwar Nath Renu",
+    price: "₹280",
+    details: "It is a regional novel in true sense as local colour is reflected in it by means of dialect, life style, superstitions and beliefs, festivals and culture of the rural people. The characters are fit to the region and they are guided by the regional characteristics . The region becomes to be a living character and plays a great role in leading the characters to the catastrophe"
+  },
+  {
+    id: 5,
+    image: "/ardhanarishwar.png",
+    name: "Ardhanarishwar",
+    author: "Vishnu Prabhakar",
+    price: "₹220",
+    details: "Ardhanarishwar (meaning The Androgynous God or Shiva) is a Hindi novel by Indian writer Vishnu Prabhakar, published in 1992. It won the 1993 Sahitya Akademi Award for Hindi, given by Sahitya Akademi, India's National Academy of Letters."
+  },
+  {
+    id: 6,
+    image: "/gaban.png",
+    name: "Gaban ग़बन",
+    author: "Munshi Premchand",
+    price: "₹300",
+    details: "Through this novel, Munshi Premchand tries to show the falling moral values among lower middle class Indian youth in the era of British India, and to what depths a person can descend to, to become a pseudo-elite, and maintain a false image as a rich person. Gaban is a cult classic satire of Premchand."
+  },
+];
 
 
 const Home = () => {
 
-    return (
-        <div className="w-full min-h-[calc(100vh-60px)] flex flex-col items-center px-4 sm:px-6 lg:px-0 bg-[#F9FAFB]">
+  const [startIndex, setStartIndex] = useState(0);
 
-<div className='h-20 w-full flex justify-end items-center bg-[#FCF8F8] shadow-sm'>
-        
- <ul className="w-full h-full pr-20 flex gap-6 items-center justify-end text-xl font-medium ">
-                 
-				 <li className="w-full flex justify-end items-center px-4"> 
-				 {/* Search */}
-                <div className="w-full max-w-md flex items-center border border-[#A7B1FF] bg-white rounded-full overflow-hidden transition-all duration-200 focus-within:ring-2 focus-within:ring-[#F9A629] focus-within:shadow-md" >
-					<input 
-					type="text" 
-					placeholder="Explore Books, Authors, and more..."
-					  className="flex-1 px-4 py-2 text-sm sm:text-base outline-none bg-transparent relative z-50"
+  const prev = () => {
+    setStartIndex((prev) => (prev === 0 ? books.length - 3 : prev - 1));
+  };
 
-					/>
-					<button className="w-12 h-12 sm:w-11 sm:h-11 bg-[#685AFF] flex items-center justify-center hover:bg-[#eb5d13]">
-					  <Search className="text-white" size={18} />
-					</button>
-				  </div>
-				
-				</li>
-				
-				 <li> <User className="text-[#15173D] w-6 h-6" /> </li>
-				 </ul>
-		
-</div>
-            {/* HERO */}
-            <div className="w-full max-w-5xl flex flex-col items-center text-center mt-8 lg:mt-14">
+  const next = () => {
+    setStartIndex((prev) => (prev + 3 >= books.length ? 0 : prev + 1));
+  };
 
-                {/* Title */}
-                <h1 className="font-thin md:font-bold text-2xl sm:text-3xl lg:text-4xl leading-snug flex flex-col items-center justify-center text-center">
-                    <span className="text-[#A7B1FF]">Discover Your Next Great Read</span>
-					
-                    <span className="text-[#E48BFF] text-2xl">Explore thousands of books, journals, and digital resources.</span>
-                </h1>
+  return (
+    <div className="w-full min-h-[calc(100vh-60px)] flex flex-col items-center px-4 sm:px-6 lg:px-0 bg-[#FBFEFC] z-0">
 
-                
+      {/* for buttons : #2A7F7F */}
 
-                {/* Description */}
-                <p className="hidden md:block mt-6 max-w-3xl text-sm sm:text-base lg:text-lg leading-relaxed px-2">
-                    Welcome to{" "}
-                    <a className="text-[#eb5d13]" href="#">trendinghashtag.in</a>{" "}
-                    the best hashtag generator for your social media posts like Instagram, X (Twitter),
-                    YouTube and Facebook. Our AI-powered hashtag generator provides the best
-                    trending hashtags across all platforms.
-                </p>
-                
-                {/* Free Download */}
-                <h2 className="mt-8 text-lg sm:text-xl lg:text-2xl font-semibold text-[#043042]">
-                    Free Download
-                </h2>
+      <div className='h-20 w-full flex justify-end items-center bg-[#DCEFEA] shadow-sm'>
 
-                
+        <ul className="w-full h-full pr-20 flex gap-6 items-center justify-end text-xl font-medium ">
 
-                {/* CTA */}
-                <button className="mt-6 bg-[#eb5d13] text-white px-6 py-2 rounded-md
-                       text-sm sm:text-base hover:bg-amber-500">
-                    Free Download Now &gt;&gt;
-                </button>
+          <li className="w-full flex justify-end items-center px-4">
+            {/* Search */}
+            <div className="w-full max-w-md flex items-center border border-[#A7B1FF] bg-white rounded-full overflow-hidden transition-all duration-200 focus-within:ring-2 focus-within:ring-[#F9A629] focus-within:shadow-md" >
+              <input
+                type="search"
+                placeholder="Explore Books, Authors, and more..."
+                className="flex-1 px-4 py-2 text-sm sm:text-base outline-none bg-transparent relative z-50"
+
+              />
+              <button className="w-12 h-12 sm:w-11 sm:h-11 bg-[#1E2D2F] flex items-center justify-center hover:bg-[#eb5d13]">
+                <Search className="text-white" size={18} />
+              </button>
             </div>
 
+          </li>
 
-            {/* TOOLS GRID */}
-            <div className="w-full bg-[#FBF9F4] mt-12 py-10">
-                <div className="max-w-6xl mx-auto grid
-                    grid-cols-2
-                    sm:grid-cols-3
-                    lg:grid-cols-5
-                    gap-4 sm:gap-6 px-4">
+          <li>
+            <Link href="/auth">
+              <User className="text-[#1E2D2F] w-6 h-6" />
+            </Link> </li>
+        </ul>
 
-                    {tools.map((tool, index) => (
-                        <div
-                            key={index}
-                            className="bg-[#FFFDF0] rounded-xl
-                     flex flex-col items-center justify-center
-                     py-6 sm:py-8
-                     gap-2 cursor-pointer
-                     hover:shadow-md transition">
+      </div>
+      {/* HERO */}
+      <div className="w-full max-w-5xl flex flex-col items-center text-center mt-8 lg:mt-14">
 
-                            <div className="text-[#eb5d13] text-xl sm:text-2xl">
-                                {tool.icon}
-                            </div>
+        {/* Title */}
+        <h1 className="font-thin md:font-bold text-2xl sm:text-3xl lg:text-4xl leading-snug flex flex-col items-center justify-center text-center">
+          <span className="text-[#5FB3A5]">Discover Your Next Great Read</span>
 
-                            <p className="text-xs sm:text-sm text-center font-medium text-[#043042]">
-                                {tool.label}
-                            </p>
-                        </div>
-                    ))}
+          <span className="text-[#5FB3A5] text-2xl">Explore thousands of books, journals, and digital resources.</span>
+        </h1>
 
+
+
+        {/* Description */}
+        <p className="hidden md:block mt-6 max-w-3xl text-sm sm:text-base lg:text-lg leading-relaxed px-2">
+          Welcome to your digital reading space — a place to explore, learn, and grow. Browse curated collections, discover new favorites, and enjoy a calm environment built for readers of all kinds.
+        </p>
+
+
+        {/* card section */}
+
+        <div className="w-full relative z-0 flex items-center justify-center mt-10">
+          {/* Left Arrow */}
+          <button
+            onClick={prev}
+            className="absolute left-0  p-2 bg-white rounded-full shadow hover:bg-gray-100"
+          >
+            <ChevronLeft />
+          </button>
+
+          {/* Cards Container */}
+          <div className="flex overflow-hidden w-[90%] gap-4">
+            {books.slice(startIndex, startIndex + 3).map((book) => (
+              <div
+                key={book.id}
+                className="flex-shrink-0 w-[30%] bg-white rounded-xl shadow hover:shadow-lg transition p-4 flex flex-col"
+              >
+                {/* Book Image */}
+                <div className="h-40 w-full overflow-hidden rounded-t-lg">
+                  <img
+                    src={book.image}
+                    alt={book.name}
+                    className="h-full w-full object-contain"
+                  />
                 </div>
-            </div>
+
+                {/* Book Info */}
+                <div className="mt-3 flex flex-col gap-1">
+                  <h3 className="font-semibold text-lg">{book.name}</h3>
+                  <p className="text-gray-500 text-sm">{book.author}</p>
+                  <p className="text-green-600 font-medium">{book.price}</p>
+                  <p className="text-gray-700 text-sm mt-1 line-clamp-3">{book.details}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={next}
+            className="absolute right-0 z-0 p-2 bg-white rounded-full shadow hover:bg-gray-100"
+          >
+            <ChevronRight />
+          </button>
+
         </div>
 
-    )
+      </div>
+
+    </div>
+
+  )
 }
 
 export default Home
