@@ -23,10 +23,10 @@ const Navbar = () => {
 
   return (
 
-    <div className='fixed left-0 top-0 h-screen w-47 justify-between items-center bg-[#DCEFEA] pt-5'>
+    <div className='fixed left-0 top-0 h-screen w-47 justify-between items-center bg-[#7A9B6F] pt-5'>
       
       <div className='flex items-center justify-center' >
-        <img src="./logo.png" className="px-2 lg:mt-5 h-auto w-[70px] sm:w-[80px] md:w-[100px] lg:w-[120px]" alt="logo" />
+        <img src="./logo2.png" className="px-2 lg:mt-5 h-auto w-[70px] sm:w-[80px] md:w-[100px] lg:w-[120px]" alt="logo" />
       </div>
 
       <div className='hidden lg:block w-[50%] h-full items-center justify-center mt-20'>

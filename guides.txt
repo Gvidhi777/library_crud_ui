@@ -1,0 +1,20 @@
+for  React App + Node.js + Express Backend With PostgreSQL database
+
+youtube link: https://www.youtube.com/watch?v=cBI5wJNmaCE
+
+requirements:
+	* Node
+	* postgres
+	
+
+1. mkdir client, server
+2. cd server
+3. npm init -y
+4. npm install express pg cors 
+5. np install nodemon -D
+
+then for client folder
+1. cd client
+2. npx create-react-app .
+
+

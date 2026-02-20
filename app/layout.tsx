@@ -34,7 +34,7 @@ export default function RootLayout({
             <div className="flex">
     
 			{/* Left Sidebar */}
-			<Navbar />
+			{/* <Navbar /> */}
 
 			{/* Main Content */}
 			<main className="flex-1 ">
